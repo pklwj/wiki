@@ -23,6 +23,8 @@ theme:
     - navigation.path           # 核心：自动折叠其他无关文件夹（Obsidian 体验）
     - navigation.indexes        # 支持点击分类直接看索引页
     - navigation.top            # 滚动到顶部按钮
+    - navigation.footer         # 确保启用页脚显示（Material v9+）
+
     
     # 代码块超级增强
     - content.code.copy         # 一键复制代码按钮
@@ -66,9 +68,12 @@ plugins:
       order: "asc"              
       sort_type: "natural"
 
+# 🚀 彻底纠正：使用 Material 内置命名的满血配置
   - git-revision-date-localized:
-      enable_creation_date: true   # 只显示“最后更新时间”
+      locale: zh                    # 中文本地化
       type: date                    # 显示格式为：2026年5月26日
+      enable_creation_date: true    # 同时显示创建时间和更新时间
+      fallback_to_build_date: true # 关键：如果打包时找不到 Git 历史，直接用当天系统时间
 
 markdown_extensions:
   - meta

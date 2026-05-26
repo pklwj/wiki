@@ -1,3 +1,5 @@
+# mkdocs.yml
+```yaml
 site_name: 我的知识库
 site_description: 个人笔记仓库
 site_url: https://pklwj.github.io/wiki/  # 部署后替换为你的域名
@@ -20,6 +22,12 @@ theme:
     - content.code.annotate     # 代码注释标注（支持富文本）
     - content.code.select       # 代码块文本选择优化
     - content.code.wordwrap     # 代码自动换行（解决横向滚动）
+    - content.action.edit       # 核心：必须开启这个 feature，才会显式编辑按钮
+    - content.action.view       # （可选）显式查看源码按钮
+
+repo_url: https://github.com/pklwj/wiki             # 替换为你的 MkDocs 源码仓库
+repo_name: pklwj/wiki                               # 按钮悬停时显示的仓库名字
+edit_uri: edit/main/docs/
     
     # 搜索功能优化
     - search.suggest            # 搜索建议
@@ -58,13 +66,10 @@ plugins:
       sort_type: "natural"
 
 markdown_extensions:
-  - meta
-  - toc:
-      permalink: true
   # 1. 语法高亮核心插件
   - pymdownx.highlight:
       anchor_linenums: true     # 点击代码行号时，URL 会变成对应行号的锚点
-      line_spans: __span
+      #line_spans: __ln
       pygments_style: material  # 使用优雅的 Material 经典高亮配色
   
   # 2. 内联代码高亮（支持在正文中高亮类似 `docker run` 的短代码）
@@ -76,3 +81,4 @@ markdown_extensions:
         - name: mermaid         # 顺便帮你开启了 Mermaid 流程图支持
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+```

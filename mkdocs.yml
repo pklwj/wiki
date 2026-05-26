@@ -66,6 +66,10 @@ plugins:
       order: "asc"              
       sort_type: "natural"
 
+  - git-revision-date-localized:
+      enable_creation_date: true   # 只显示“最后更新时间”
+      type: date                    # 显示格式为：2026年5月26日
+
 markdown_extensions:
   - meta
   - toc:
